@@ -1,0 +1,40 @@
+﻿.para1 {
+    background-color: #A6C48A;
+    height: 180px;
+    
+}
+.search {
+    text-align: center;
+    font-family: Source Code Pro;
+    color:white;
+    font-size: 64px;
+}
+.para2{
+    text-align:center;
+}
+.table1 {
+    text-align: center;
+    font-family: Source Code Pro;
+    color: black;
+    font-size: 44px;
+}
+.para3 {
+    background-color: #DD9787;
+    height: 100px;
+}
+.para4 {
+    background-color: #F6E7CB;
+    height:500px;
+}
+
+.Quantity1{
+    text-align: center;
+    font-family: Source Code Pro;
+    color: black;
+    font-size: 44px;
+}
+.para5{
+     background-color: #DD9787;
+     height:500px;
+
+}

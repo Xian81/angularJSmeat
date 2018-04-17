@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html ng-app="productApp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="productthree/styleone.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body ng-controller="productController">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="para1">
+                <p class="search">Poultry Production</p>
+                <div ng-show="!isEditing">
+                    <form class="para2">
+                        <div class="input-group">
+                            <input type="text" ng-model="search" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-search" type="button"><i class="fa fa-search fa-fw"></i> Search</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row2">
+                <div class="para3">
+                    <p class="table1">The Current Stock Lines for Meat Solutions</p>
+              </div>
+                <div class="para4">
+                    <table class="table">
+                    
+                        <th>Product Item</th>
+                        <th>Product Id</th>
+                        <th>Product</th>
+                        <th>Cost</th>
+                        <th>Measurement Id</th>
+                        <th>Measurement</th>
+                        <th>Discontinued</th>
+                        <th>Stock Quantity</th>
+                        
+                        <tr ng-repeat="product in products | filter:search">
+                            <td>{{product.ProductItemId}}</td>
+                            <td>{{product.ProductId}}</td>
+                            <td>{{product.Product}}</td>
+                            <td>{{product.Cost}}</td>
+                            <td>{{product.MeasurementId}}</td>
+                            <td>{{product.MeasurementName}}</td>
+                            <td>{{product.Discontinued}}</td>
+                            <td>{{product.StockQty}}</td>
+                            <td><a href="" ng-click="productEdit(product.ProductItemId)">Edit</a></td>
+                        </tr>
+                    </table>
+                </div>
+             
+                </div>
+
+
+           <div ng-show="isUpdatingProduct">
+            <h2>Edit Quantity</h2>
+            <input type="hidden" ng-model-="productItem">
+            <br>
+            <br> 
+            <label ng-hide="!productItem">Product Item Id:<input ng-model="editProductItem" /></label>
+            <br>
+            <label ng-hide="!productItem">Id:<input ng-model="editProductId" /></label>
+            <br>
+            <label ng-hide="!productItem">Cost:<input ng-model="editCost" /></label>
+            <br>
+            <label ng-hide="!productItem">Measurement Id:<input ng-model="editMeasurementId" /></label>
+            <br>
+            <label ng-hide ="!productItem">Discontinued:<input ng-model="editDiscontinued" /></label>
+            <br>
+            <label ng-hide="productItem">Quantity:<input ng-model="editQuantity" /></label>
+            <br>
+            <button ng-click="edit(product.ProductItemId)">Edit</button>
+            <button ng-click="cancelEdit()">Cancel</button>
+        </div>
+
+        <!--<div ng-show="isEditing">
+            <h2>Add product</h2>
+            <label>Product Item:<input ng-model="theProductItem"></label>
+            <br>
+            <br>
+            <label>Product Id:<input ng-model="theProductId"></label>
+            <br>
+            <br>
+            <label>Product:<input ng-model="theProduct"></label>
+            <br>
+            <br>
+            <label>Cost:<input ng-model="theCost"></label>
+            <br>
+            <br>
+            <label>Measurement Id:<input ng-model="theMeasurementId"></label>
+            <br>
+            <br>
+            <label>Measurement:<input ng-model="theMeasurementName"></label>
+            <br>
+            <br>
+            <label>Discontinued:<input ng-model="theDiscontinued"></label>
+            <br>
+            <br>
+            <label>Stock Quantity:<input ng-model="theStock"></label>
+            <br>
+            <br>
+            <button ng-click="add()">Add</button>
+            <button ng-click="cancelAddition()">Cancel</button>
+        </div>
+    </div>-->
+
+    <div ng-show="errorMessage">
+        Error:{{errorMessage | json}}
+    </div>
+    <script src="productthree/myApp.js"></script>
+    <script src="productthree/productfou/productModule.js"></script>
+    <script src="productthree/productfou/productController.js"></script>
+    <!-- must have the module first -->
+</body>
+</html>
